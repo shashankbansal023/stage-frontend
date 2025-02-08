@@ -21,9 +21,7 @@ describe('Instagram Stories', () => {
     });
   
     it('should auto-advance after 5 seconds', () => {
-      cy.click();
       cy.get('[data-testid="story-thumbnail"]').first().click();
-      cy.tick(5000);
       cy.get('[data-testid="story-image"]').should('have.attr', 'src', 'https://picsum.photos/300/500?2');
     });
   
@@ -40,9 +38,7 @@ describe('Instagram Stories', () => {
     });
   
     it('should close viewer when reaching end of stories', () => {
-      cy.clock();
       cy.get('[data-testid="story-thumbnail"]').last().click();
-      cy.tick(5000);
       cy.get('[data-testid="story-viewer"]').should('not.exist');
     });
   });
