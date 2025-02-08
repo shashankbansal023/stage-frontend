@@ -1,10 +1,4 @@
 describe('Instagram Stories', () => {
-    beforeEach(() => {
-      cy.intercept('GET', '/stories.json', {
-        fixture: 'stories.json',
-      }).as('getStories');
-      cy.visit('/');
-    });
   
     it('should display stories list', () => {
       cy.get('[data-testid="story-thumbnail"]').should('have.length', 3);
